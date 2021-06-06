@@ -1,6 +1,8 @@
 # input string 공백 및 특수기호 제거 x
 
-def splitString(str, idx):
+idx = 2
+
+def splitString(str):
     strList = []
 
     for i in range(len(str)-idx+1):
@@ -8,22 +10,29 @@ def splitString(str, idx):
     
     return strList
 
-def nGram(pattern, text, idx):
 
-    patternList = splitString(pattern, idx)
-    textList = splitString(text, idx)
+def nGram(textList, patternIdx):
 
-    unionList = patternList.copy()
+    patternIdx = patternIdx - 1
+    pattern = splitString(textList[patternIdx][processed])
+
+    splitTextList = []
+    for i in textList:
+        splitTextList.append(splitString(i[processed]))
+
+    unionList = pattern.copy()
     intersectionList = []
 
-    for w in textList:
-        if w in unionList:
-            intersectionList.append(w)
-            continue
+    for w in splitTextList:
+        for p in w:
+            tmp = []
+            if p in pattern:
+                tmp.append(p)
+        intersectionList.append(tmp)
     
-    return len(intersectionList) / len(unionList)
-
-
-print(nGram("나는멍청이이다", "나는뭉청이이다",2))
+    for i in range(len(textList)):
+        textList[i][similarity] = len(intersectionList[i]) / len(unionList[0])
+        
+    return textList
 
 
