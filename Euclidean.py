@@ -36,6 +36,7 @@ def euclidean(sent1, sent2):
 result = euclidean(sent1,sent2)
 print("Euclidean Similarity : ",result)
 '''
+#패키지 필요
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
