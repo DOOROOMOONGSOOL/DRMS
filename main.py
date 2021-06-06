@@ -35,8 +35,14 @@ while True:
     keyword = input()
     titles = search.search(title_list, keyword)
 
-    print("\n----- 키워드가 포함된 논문 목록 -----")
+    print("\n")
+    print('\033[94m' +
+          "■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■" + '\033[0m', end="\n\n\n")
+    print("----- 검색 결과 -----")
     front.searchedTitle(titles)
+    print("\n")
+    print('\033[94m' +
+          "■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■" + '\033[0m')
 
     print("\n■ 읽을 논문의 번호를 입력하세요 : ", end="")
     title_num = int(input())
@@ -60,6 +66,7 @@ while True:
         print("\n■ 다음에 읽을 논문의 번호를 입력하세요(키워드 검색으로 돌아가기는 0, 종료는 q를 입력하세요) : ", end="")
         select = input()
         if select == 'q' or select == "Q":
+            print("\nDRMS 서비스를 이용해주셔서 감사합니다 =)\n")
             exit()
         elif select == '0':
             print("\n")
