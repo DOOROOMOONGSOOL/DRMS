@@ -14,11 +14,11 @@ def splitString(str):
 def nGram(textList, patternIdx):
 
     patternIdx = patternIdx - 1
-    pattern = splitString(textList[patternIdx][processed])
+    pattern = splitString(textList[patternIdx]["processed"])
 
     splitTextList = []
     for i in textList:
-        splitTextList.append(splitString(i[processed]))
+        splitTextList.append(splitString(i["processed"]))
 
     unionList = pattern.copy()
     intersectionList = []
@@ -31,7 +31,7 @@ def nGram(textList, patternIdx):
         intersectionList.append(tmp)
     
     for i in range(len(textList)):
-        textList[i][similarity] = len(intersectionList[i]) / len(unionList[0])
+        textList[i]["similarity"] = len(intersectionList[i]) / len(unionList[0])
         
     return textList
 
