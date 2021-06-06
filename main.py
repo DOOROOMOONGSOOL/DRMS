@@ -35,8 +35,14 @@ while True:
     keyword = input()
     titles = search.search(title_list, keyword)
 
-    print("\n----- 키워드가 포함된 논문 목록 -----")
+    print("\n")
+    print('\033[94m' +
+          "■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■" + '\033[0m', end="\n\n\n")
+    print("----- 검색 결과 -----")
     front.searchedTitle(titles)
+    print("\n")
+    print('\033[94m' +
+          "■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■" + '\033[0m')
 
     print("\n■ 읽을 논문의 번호를 입력하세요 : ", end="")
     title_num = int(input())
