@@ -17,7 +17,8 @@ def editDist(text, pattern):
 
     for i in range(1, len(pattern) + 1):
         for j in range(1, len(text) + 1):
-            cCost = iCost + dCost if pattern[i - 1] != text[j - 1] else 0
+            cCost = iCost + dCost if pattern[i -
+                                             1] != text["processed"][j - 1] else 0
             dTable[i][j] = min(dTable[i - 1][j] + dCost, dTable[i]
                                [j - 1] + iCost, dTable[i - 1][j - 1] + cCost)
 
@@ -25,7 +26,7 @@ def editDist(text, pattern):
 
 
 def levenshteion(textList, idx):
-    pattern = textList[idx]["title"]
+    pattern = textList[idx]["processed"]
     for i, text in enumerate(textList):
         textList[i]["similarity"] = getSimilarity(text, pattern)
 
