@@ -11,13 +11,11 @@ def euclidean(testList, patternIdx):
         # (1) 이용하여 임베딩
         sentence_embeddings = model.encode(sentences)
         # (2)거리 구하는 공식을 적용
-        result.append(np.sqrt(np.sum((sentence_embeddings[0]-sentence_embeddings[1])**2)))
+        result.append(np.dot(sentence_embeddings[0],sentence_embeddings[1])/(np.linalg.norm(sentence_embeddings[0])*np.linalg.norm(sentence_embeddings[1])))
     
     for i in range(len(testList)):
-        if result[i] == 0:
-            testList[i]["similarity"] = 1
-        else:
-            testList[i]["similarity"] = 1 / result[i] 
+        testList[i]["similarity"] = result[i] 
+            
 
     return testList
 
