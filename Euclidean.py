@@ -5,7 +5,7 @@ model = SentenceTransformer('paraphrase-distilroberta-base-v1')
 def euclidean(testList, patternIdx):
     for i in range(len(testList)):
         patternIdx = patternIdx - 1
-        sentences = [testList[processed][i],testList[processed][patternIdx]]
+        sentences = [testList[i][processed],testList[patternIdx][processed]]
         # (1) 이용하여 임베딩
         sentence_embeddings = model.encode(sentences)
         # (2)거리 구하는 공식을 적용
@@ -14,6 +14,6 @@ def euclidean(testList, patternIdx):
             result = 1
         else:
             result = 1 / result
-        testList[similarity][i] = result
+        testList[i][similarity] = result
     return testList
 
