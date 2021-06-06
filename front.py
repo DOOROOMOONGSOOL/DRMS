@@ -38,6 +38,6 @@ def paperRelation(titles, title_num):
     for i in range(len(titles)):
         if(int(title_num) - 1 != i):
             print(index, end = ". (유사도 : ")
-            print("%0.2f" %titles[i]["similarity"] * 100, end = "%) ")
+            print("%0.2f" %(titles[i]["similarity"] * 100), end = "%) ")
             print(titles[i]["title"])
             index += 1

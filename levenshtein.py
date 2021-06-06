@@ -26,7 +26,7 @@ def editDist(text, pattern):
 
 
 def levenshteion(textList, idx):
-    pattern = textList[idx]["processed"]
+    pattern = textList[idx-1]["processed"]
     for i, text in enumerate(textList):
         textList[i]["similarity"] = getSimilarity(text, pattern)
 

@@ -24,14 +24,14 @@ def nGram(textList, patternIdx):
     intersectionList = []
 
     for w in splitTextList:
+        tmp = []
         for p in w:
-            tmp = []
             if p in pattern:
                 tmp.append(p)
         intersectionList.append(tmp)
     
     for i in range(len(textList)):
-        textList[i]["similarity"] = len(intersectionList[i]) / len(unionList[0])
+        textList[i]["similarity"] = len(intersectionList[i]) / len(unionList)
         
     return textList
 

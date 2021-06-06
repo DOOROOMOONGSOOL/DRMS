@@ -1,6 +1,8 @@
 import front
 import search
 import levenshtein
+import nGram
+import Euclidean
 
 def preprocess(text):
     return ''.join(filter(str.isalnum, text))
@@ -37,7 +39,10 @@ while True:
     while(True):
         front.searchedPaper(titles, title_num)
 
-        titles = levenshtein.levenshteion(titles, title_num)
+        #titles = levenshtein.levenshteion(titles, title_num)
+        #titles = nGram.nGram(titles, title_num)
+        #titles = Euclidean.euclidean(titles, title_num)
+        
         front.paperRelation(titles, title_num)
 
         print("\n■ 다음에 읽을 논문의 번호를 입력하세요(키워드 검색으로 돌아가기는 0, 종료는 q를 입력하세요) : ", end = "")
@@ -47,7 +52,8 @@ while True:
         elif select == '0':
             break
         else:
-            if(int(select) < title_num):
+            select = int(select)
+            if(select < title_num):
                 title_num = select
             else:
                 title_num = select + 1
