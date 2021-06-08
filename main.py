@@ -4,7 +4,8 @@ from operator import itemgetter
 import copy
 import levenshtein
 import nGram
-#import Euclidean
+import cosineSimility
+import Euclidean
 
 
 def preprocess(text):
@@ -49,8 +50,9 @@ while True:
     while(True):
         front.searchedPaper(titles, title_num)
 
-        titles = levenshtein.levenshtein(titles, title_num)
+        #titles = levenshtein.levenshtein(titles, title_num)
         #titles = nGram.nGram(titles, title_num)
+        titles = cosineSimility.cosineSimility(titles, title_num)
         #titles = Euclidean.euclidean(titles, title_num)
 
         c_titles = copy.deepcopy(titles)
