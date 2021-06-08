@@ -1,4 +1,8 @@
 # 최소편집거리를 이용한 문장 간의 유사도
+
+levenshtein_cnt = 0
+
+
 def getSimilarity(text, pattern):
     med, max = editDist(text, pattern)
 
@@ -6,6 +10,7 @@ def getSimilarity(text, pattern):
 
 
 def editDist(text, pattern):
+    global levenshtein_cnt
     iCost, dCost = 1, 1
     dTable = [[0 for _ in range(len(text) + 1)]
               for _ in range(len(pattern) + 1)]
@@ -17,6 +22,7 @@ def editDist(text, pattern):
 
     for i in range(1, len(pattern) + 1):
         for j in range(1, len(text) + 1):
+            levenshtein_cnt += 1
             cCost = iCost + dCost if pattern[i -
                                              1] != text[j - 1] else 0
             dTable[i][j] = min(dTable[i - 1][j] + dCost, dTable[i]
@@ -31,3 +37,10 @@ def levenshtein(textList, idx):
         textList[i]["similarity"] = getSimilarity(text["processed"], pattern)
 
     return textList
+
+
+def printlevenshteinCnt(textList, patternIdx):
+    leven = levenshtein(textList, patternIdx)
+    print(levenshtein_cnt)
+
+    return leven
