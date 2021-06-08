@@ -1,6 +1,7 @@
 # input string 공백 및 특수기호 제거 x
 
 idx = 2
+nGram_Cnt = 0
 
 def splitString(str):
     strList = []
@@ -12,6 +13,8 @@ def splitString(str):
 
 
 def nGram(textList, patternIdx):
+
+    global nGram_Cnt
 
     patternIdx = patternIdx - 1
     pattern = splitString(textList[patternIdx]["processed"])
@@ -27,7 +30,9 @@ def nGram(textList, patternIdx):
     for w in splitTextList:
         tmp = []
         unionTmp = pattern.copy()
+        nGram_Cnt += len(unionTmp)
         for p in w:
+            nGram_Cnt += 1
             if p in pattern:
                 tmp.append(p)
             else:
@@ -42,4 +47,8 @@ def nGram(textList, patternIdx):
         
     return textList
 
+def printNgramCnt(textList, patternIdx):
+    simility = nGram(textList, patternIdx)
+    print(nGram_Cnt)
+    return simility
 
