@@ -19,6 +19,7 @@ f = open("data.txt", 'rt', encoding='UTF8')
 while True:
     title = f.readline().rstrip()
     content = f.readline().rstrip()
+    #content = "논문내용"
     processed = preprocess(title)
 
     if not title:
@@ -49,10 +50,9 @@ while True:
     while(True):
         front.searchedPaper(titles, title_num)
 
-        #titles = levenshtein.levenshtein(titles, title_num)
-        #titles = nGram.nGram(titles, title_num)
-        titles = cosineSimility.cosineSimility(titles, title_num)
-        #titles = Euclidean.euclidean(titles, title_num)
+        #titles = levenshtein.printlevenshteinCnt(titles, title_num)
+        #titles = nGram.printNgramCnt(titles, title_num)
+        titles = cosineSimility.printCosineCnt(titles, title_num)
 
         c_titles = copy.deepcopy(titles)
 
