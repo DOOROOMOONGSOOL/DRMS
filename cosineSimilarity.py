@@ -1,16 +1,16 @@
 import re
 import math
 
-cosineSimility_Cnt = 0
+cosineSimilarity_Cnt = 0
 
 def cleanText(readData):
     text = re.sub('[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》]', '', readData)
     return text
     
 
-def cosineSimility(textList, patternIdx):
+def cosineSimilarity(textList, patternIdx):
     
-    global cosineSimility_Cnt
+    global cosineSimilarity_Cnt
     
     for i in range(len(textList)):
         textList[i]["processed"] = cleanText(textList[i]["title"])
@@ -31,7 +31,7 @@ def cosineSimility(textList, patternIdx):
     for i in splitBlank:
         tmp = {}
         for w in i:
-            cosineSimility_Cnt += 1
+            cosineSimilarity_Cnt += 1
             if w not in tmp:
                 tmp[w] = 1
             else:
@@ -44,7 +44,7 @@ def cosineSimility(textList, patternIdx):
     for i in textDic:
         tmp = 0
         for key, value in patternDic.items():
-            cosineSimility_Cnt += 1
+            cosineSimilarity_Cnt += 1
             if key in i:
                 tmp += (value * i[key])
         numeratorList.append(tmp)
@@ -67,13 +67,12 @@ def cosineSimility(textList, patternIdx):
     for i in range(len(textList)):
         textList[i]["similarity"] =  numeratorList[i] / denominatorList[i]
 
+    print("Cosine Similarity Algorithm")
     return textList
 
 def printCosineCnt(textList, patternIdx):
-    simility = cosineSimility(textList, patternIdx)
-    print(cosineSimility_Cnt)
+    simility = cosineSimilarity(textList, patternIdx)
+    print("Compare Count : ", end="")
+    print(cosineSimilarity_Cnt)
     return simility
-
-#diecc = [{'title': "i don't know that that.", 'content': "sdf", 'processed': "idontknowthat", 'similarity': 0},{'title': "i don't know know know that that.", 'content': "sdf", 'processed': "idontknowthat", 'similarity': 0}]
-#print(cosineSimility(diecc, 1))
     

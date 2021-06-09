@@ -35,12 +35,14 @@ def levenshtein(textList, idx):
     pattern = textList[idx-1]["processed"]
     for i, text in enumerate(textList):
         textList[i]["similarity"] = getSimilarity(text["processed"], pattern)
-
+    
+    print("Levenshtein Algorithm")
     return textList
 
 
 def printlevenshteinCnt(textList, patternIdx):
     leven = levenshtein(textList, patternIdx)
+    print("Compare Count : ", end = "")
     print(levenshtein_cnt)
 
     return leven

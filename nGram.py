@@ -44,11 +44,13 @@ def nGram(textList, patternIdx):
     
     for i in range(len(textList)):
         textList[i]["similarity"] = len(intersectionList[i]) / len(unionList[i])
-        
+    
+    print("nGram Algorithm")
     return textList
 
 def printNgramCnt(textList, patternIdx):
     simility = nGram(textList, patternIdx)
+    print("Compare Count : ", end = "")
     print(nGram_Cnt)
     return simility
 
