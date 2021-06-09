@@ -1,6 +1,3 @@
-import search
-
-
 def start():
     print("", end="\n                      ")
     print('\033[94m \033[100m' +

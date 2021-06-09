@@ -1,6 +1,5 @@
 import front
 import search
-from operator import itemgetter
 import copy
 import levenshtein
 import nGram
@@ -49,13 +48,16 @@ while True:
     while(True):
         front.searchedPaper(titles, title_num)
 
-        #titles = levenshtein.levenshtein(titles, title_num)
+        # 각 알고리즘의 유사도를 측정하는 함수 호출
+        titles = levenshtein.levenshtein(titles, title_num)
         #titles = nGram.nGram(titles, title_num)
         #titles = cosineSimilarity.cosineSimilarity(titles, title_num)
         #titles = Euclidean.euclidean(titles, title_num)
+
+        # 각 알고리즘의 데이터 비교 횟수를 확인할 있는 함수 호출
         #titles = nGram.printNgramCnt(titles, title_num)
         #titles = cosineSimilarity.printCosineCnt(titles, title_num)
-        titles = levenshtein.printlevenshteinCnt(titles, title_num)
+        #titles = levenshtein.printlevenshteinCnt(titles, title_num)
 
         c_titles = copy.deepcopy(titles)
 
